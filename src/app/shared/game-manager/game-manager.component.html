@@ -1,0 +1,67 @@
+<h1>Create a new Game</h1>
+<form class="gameForm"
+      *ngIf="developers && publishers && genres && canShowFrom"
+      [formGroup]="gameForm"
+      (ngSubmit)="submit()">
+    <mat-form-field>
+        <input matInput
+               type="text"
+               name="gameName"
+               placeholder="game name"
+               formControlName="name">
+        <mat-error *ngIf="gameForm.get('name').hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="gameForm.get('name').hasError('maxlength')">
+            Name must be <strong>less than 26 characters</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="textareaFiled">
+        <textarea matInput
+                  placeholder="game description"
+                  formControlName="description"></textarea>
+        <mat-error *ngIf="gameForm.get('description').hasError('required')">
+            Description is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Choose Developer</mat-label>
+        <mat-select formControlName="developerId">
+            <mat-option *ngFor="let developer of developers" [value]="developer.developerId">
+                {{developer.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="gameForm.get('developerId').hasError('required')">
+            Developer is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Choose Publisher</mat-label>
+        <mat-select formControlName="publisherId">
+            <mat-option value="none">None</mat-option>
+            <mat-option *ngFor="let publisher of publishers" [value]="publisher.publisherId">
+                {{publisher.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Choose Genre(s)</mat-label>
+        <mat-select formControlName="genreIds" multiple>
+            <mat-option *ngFor="let genre of genres" [value]="genre.genreId">
+                {{genre.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button class="submitButton" 
+            type="submit" 
+            mat-raised-button 
+            color="primary"
+            [disabled]="gameForm.invalid">{{submitButtonName}}</button>
+</form>
+
+<app-back-button></app-back-button>

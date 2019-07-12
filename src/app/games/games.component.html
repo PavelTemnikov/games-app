@@ -1,0 +1,10 @@
+<app-game-list *ngIf="games"
+                [games]="games"
+                gameHeaderTag="h2"
+                genreHeaderTag="h3"
+                canEditGame="true"
+                haveEditGameHandler="true"
+                (gameEditing)="editGameHandler($event)"
+                gameNameAsLink="true"></app-game-list>
+
+<a class="createGame" routerLink="creating" mat-raised-button color="primary">Add game</a>

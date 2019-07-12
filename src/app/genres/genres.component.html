@@ -1,0 +1,8 @@
+<section class="genres">
+    <app-genre-list *ngIf="genres"
+                    headerTag="h2" 
+                    [genres]="genres"
+                    canEditGenre="true"></app-genre-list>
+</section>
+
+<app-entity-creating entityName="genre"></app-entity-creating>

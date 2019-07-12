@@ -1,0 +1,11 @@
+<section class="developer">
+    <h2 *ngIf="developer">{{developer.name}}</h2>
+
+    <app-game-list *ngIf="games"
+                    [games]="games"
+                    gameHeaderTag="h3"
+                    genreHeaderTag="h4"
+                    gameNameAsLink="true"></app-game-list>
+    
+    <app-back-button></app-back-button>
+</section>

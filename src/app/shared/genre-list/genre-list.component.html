@@ -1,0 +1,8 @@
+<app-header-manager text="Genres: " [headerTag]="headerTag"></app-header-manager>
+<ul class="genreList">
+    <li *ngFor="let genre of genres">
+        <app-entity-name headerTag="span"
+                         [entity]="genre"
+                         [canEdit]="canEditGenre"></app-entity-name>
+    </li>
+</ul>

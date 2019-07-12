@@ -1,0 +1,19 @@
+<ul *ngIf="game" class="game">
+    <li>
+        <h2>{{game.name}}</h2>
+    </li>
+    <li>
+        <p>{{game.description}}</p>
+    </li>
+    <li *ngIf="game.gameXrefGenre.length">
+        <app-genre-list headerTag="h3" [gameXrefGenres]="game.gameXrefGenre"></app-genre-list>
+    </li>
+    <li *ngIf="developer">
+        <a [routerLink]="['/developers', developer.developerId]" mat-raised-button color="primary">{{developer.name}}</a>
+    </li>
+    <li *ngIf="publisher">
+        <a [routerLink]="['/publishers', publisher.publisherId]" mat-raised-button color="primary">{{publisher.name}}</a>
+    </li>
+</ul>
+
+<app-back-button></app-back-button>

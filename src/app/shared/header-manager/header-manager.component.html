@@ -1,0 +1,4 @@
+<a *ngIf="linkData"
+   #link
+   mat-button
+   [routerLink]="[linkData.path, linkData.id]">{{text}}</a>

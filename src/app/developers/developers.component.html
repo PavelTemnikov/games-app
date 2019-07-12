@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let developer of developers">
+        <app-entity-name headerTag="h2"
+                         canEdit="true"
+                         asLink="true"
+                         [entity]="developer"></app-entity-name>
+    </li>
+</ul>
+
+<app-entity-creating entityName="developer"></app-entity-creating>

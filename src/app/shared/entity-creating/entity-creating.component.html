@@ -1,0 +1,14 @@
+<section class="createForm">
+    <h2>Add a new {{entityName}}</h2>
+    <mat-form-field>
+        <input matInput
+            type="text"
+            [name]="entityName + 'Name'"
+            [placeholder]="entityName + ' name'"
+            [formControl]="entityNameControl">
+        <mat-error *ngIf="entityNameControl.hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+    <a mat-raised-button color="primary" (click)="add()">Add</a>
+</section>

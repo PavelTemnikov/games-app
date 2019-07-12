@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    align-items: center;
+
+    .flex-spacer {
+        flex: 1 1 auto;
+    }
+
+    .actions {
+        margin-right: 10px;
+    }
+
+    mat-form-field {
+        margin-right: 10px;
+    }
+}

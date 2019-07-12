@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let publisher of publishers">
+        <app-entity-name headerTag="h2"
+                         canEdit="true"
+                         asLink="true"
+                         [entity]="publisher"></app-entity-name>
+    </li>
+</ul>
+
+<app-entity-creating entityName="publisher"></app-entity-creating>

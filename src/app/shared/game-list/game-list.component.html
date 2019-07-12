@@ -1,0 +1,13 @@
+<ul class="games">
+    <li *ngFor="let game of games">
+        <app-entity-name [headerTag]="gameHeaderTag"
+                         [canEdit]="canEditGame"
+                         [haveEditHandler]="haveEditGameHandler"
+                         (editing)="gameEditing.emit($event)"
+                         [asLink]="gameNameAsLink"
+                         [entity]="game"></app-entity-name>
+        <app-genre-list *ngIf="game.gameXrefGenre.length"
+                        [headerTag]="genreHeaderTag"
+                        [gameXrefGenres]="game.gameXrefGenre"></app-genre-list>
+    </li>
+</ul>

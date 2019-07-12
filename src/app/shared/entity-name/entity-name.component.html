@@ -1,0 +1,28 @@
+<ng-container *ngIf="!isEditing">
+    <app-header-manager [text]="entity.name"
+                        [headerTag]="headerTag"
+                        [linkData]="linkData"></app-header-manager>
+
+    <span class="flex-spacer"></span>
+
+    <ng-container *ngIf="canEdit">
+        <a class="actions" mat-stroked-button color="primary" (click)="edit()">Edit</a>
+        <a class="actions" mat-stroked-button color="warn" (click)="delete()">Delete</a>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="isEditing">
+    <mat-form-field>
+        <input matInput
+               type="text"
+               [name]="entityName"
+               [placeholder]="entityName+ ' name'"
+               [formControl]="entityNameControl">
+        <mat-error *ngIf="entityNameControl.hasError('required')">
+            Name is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <a class="actions" mat-stroked-button color="primary" (click)="save()">OK</a>
+    <a class="actions" mat-stroked-button color="warn" (click)="isEditing=false">Cancel</a>
+</ng-container>
